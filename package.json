@@ -17,7 +17,7 @@
     "url": "https://github.com/jamillyp/api-rest/issues"
   },
   "homepage": "https://github.com/jamillyp/api-rest#readme",
-  "dependencies": {
+  "devDependencies": {
     "json-server": "^0.17.1"
   }
 }
