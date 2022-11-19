@@ -1,7 +1,18 @@
+import { Nav } from "../../components/Nav";
+
+import { 
+    Container
+} from "./styles";
+
 export function Home() {
     return (
         <>
-            <h1>Home</h1>
+        <Nav />
+        <Container>
+            oi
+        
+        </Container>
         </>
+        
     );
 }
