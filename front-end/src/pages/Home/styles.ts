@@ -4,13 +4,20 @@ export const Container = styled.div`
     display: flex;
     min-width: 1200px;
     justify-content: space-around;
-    align-items: center;
+    color: var(--white);
+    padding: 30px;
+
+    @media(max-width: 300px) {
+        display: block;
+    }
 `;
 
 export const Content = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    padding: 20px;
     width: 100%;
-    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
+    text-align: center;
 `;

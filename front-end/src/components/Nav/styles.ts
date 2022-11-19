@@ -13,6 +13,9 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+    h3 {
+        cursor: pointer;
+    }
     span {
         font-size: small;
         text-align: left;
@@ -31,7 +34,11 @@ export const Content = styled.div`
 export const ContentShoppingCart = styled.div`
     display: flex;
     justify-content: space-between;
+    cursor: pointer;
     
+    h4, img {
+        cursor: pointer;
+    }
 
     #shopping-cart {
         margin-right: 20px;
