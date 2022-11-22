@@ -1,3 +1,4 @@
+import { CircularProgress } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Card } from "../../components/Card";
 import { Nav } from "../../components/Nav";
@@ -8,20 +9,29 @@ import {
     Content
 } from "./styles";
 
+interface Product {
+    product_id?: number;
+    product_title?: string;
+    product_price?: string;
+    product_image?: string;
+}
+
 export function Home() {
     const [products, setProducts] = useState([]);
     const [qtd, setQtd] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     async function loadProducts() {
         await api.get('products')
             .then((res) => {
                 setProducts(res.data);
+                setLoading(false);
             }).catch((err) =>
-                alert(err.message)
+                console.log("Erro ao carregar dados na rota GET /products: " + err.message)
             );
     }
 
-    function handleClick(count: number) {
+    function handleClick(count: number, id: number) {
         setQtd((prevState: any) => prevState + count);
     }
 
@@ -29,15 +39,22 @@ export function Home() {
         loadProducts();
     }, []);
 
+    useEffect(() => {
+        // console.log({ products });
+    }, [])
+
     return (
         <>
-            <Nav quantity={qtd} />
+            <Nav quantity={qtd} data={products} />
             <Container>
-                <Content>
-                    {
-                        products && <>
-                            {products.map((product: any) =>
+                {
+                    loading ? <div id='loading'>
+                        <CircularProgress sx={{ color: '#fff', marginTop: '150px' }} />
+                    </div> : <Content>
+                        {
+                            products.map((product: any) =>
                                 <Card
+                                    key={product.id}
                                     _id={product.id}
                                     title={product.title}
                                     price={
@@ -50,9 +67,8 @@ export function Home() {
                                     count={handleClick}
                                 />
                             )}
-                        </>
-                    }
-                </Content>
+                    </Content>
+                }
             </Container>
         </>
 

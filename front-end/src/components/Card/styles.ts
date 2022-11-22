@@ -16,4 +16,8 @@ export const Container = styled.div`
         font-size: 16px;
         font-weight: 700;
     }
+
+    .css-5llwpe-MuiButtonBase-root-MuiButton-root:hover {
+        background-color: #039B00;
+    }
 `;

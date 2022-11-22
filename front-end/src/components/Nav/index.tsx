@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import shoppingCart from '../../assets/shopping-cart.svg';
 
@@ -7,12 +8,14 @@ import {
     ContentShoppingCart,
 } from "./styles";
 
-interface NavProps{
+interface NavProps {
     quantity?: number;
+    data?: any;
 }
 
-export function Nav({ quantity } : NavProps) {
+export function Nav({ quantity, data }: NavProps) {
     const navigate = useNavigate();
+    const [qtd, setQtd] = useState(0);
 
     return (
         <Container>
@@ -21,12 +24,17 @@ export function Nav({ quantity } : NavProps) {
             </Content>
             <ContentShoppingCart>
                 <div id="shopping-cart">
-                    <h4 onClick={() => navigate('/carrinho')}>Meu carrinho</h4>
-                    <span>{quantity} itens</span>
+                    <h4 onClick={() => navigate('/carrinho', {
+                        state: { quantity, data },
+                    })}>Meu carrinho</h4>
+                    <span>{quantity ? quantity: qtd} itens</span>
                 </div>
 
                 <div>
-                    <img src={shoppingCart} alt="shopping-cart" onClick={() => navigate('/carrinho')} />
+                    <img src={shoppingCart} alt="shopping-cart" onClick={() => navigate('/carrinho', {
+                        state: { quantity, data },
+                    })}
+                    />
                 </div>
             </ContentShoppingCart>
         </Container>

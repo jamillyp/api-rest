@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
-    min-width: 1200px;
+    min-width: 1124px;
     justify-content: space-around;
     color: var(--white);
     padding: 30px;
@@ -20,4 +20,10 @@ export const Content = styled.div`
     align-items: center;
     justify-content: space-evenly;
     text-align: center;
+
+    #loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `;

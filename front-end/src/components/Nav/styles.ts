@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: flex;
-    min-width: 1200px;
-    justify-content: space-around;
+    min-width: 1124px;
+    justify-content: space-between;
     color: var(--white);
-    padding: 30px;
+    /* margin: 40px; */
 
     @media(max-width: 300px) {
         display: block;
@@ -13,6 +13,9 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+    width: 80%;
+    margin: 50px 0px 0px 85px;
+    
     h3 {
         cursor: pointer;
     }
@@ -33,8 +36,11 @@ export const Content = styled.div`
 
 export const ContentShoppingCart = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: end;
     cursor: pointer;
+    width: 100%;
+
+    margin: 50px 85px 0px 0px;
     
     h4, img {
         cursor: pointer;
